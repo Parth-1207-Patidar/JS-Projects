@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div>
+                <input type="text" id="search" placeholder="Search for products">
+                <button id="searchBtn">Search</button>
+            </div>
+            <div class="categories">
+                <button class="categoryBtn" id="all">All</button>
+                <button class="categoryBtn" id="electronics">Electronics</button>
+                <button class="categoryBtn" id="fashion">Fashion</button>
+                <button class="categoryBtn" id="home">Home</button>
+            </div>
+        </div>
+        <div class="products">
+            <div data-category="electronics" class="card electronics card1">
+                <h3>Smartphone</h3>
+                <p>Description</p>
+            </div>
+            <div data-category="fashion" class="card fashion card2">
+                <h3>T-shirt</h3>
+                <p>Description</p>
+            </div>
+            <div data-category="home" class="card home card3">
+                <h3>Coffe Maker</h3>
+                <p>Description</p>
+            </div>
+            <div data-category="electronics" class="card electronics card4">
+                <h3>Laptop</h3>
+                <p>Description</p>
+            </div>
+            <div data-category="home" class="card home card5">
+                <h3>Blender</h3>
+                <p>Description</p>
+            </div>
+            <div data-category="fashion" class="card fashion card6">
+                <h3>Hoodie</h3>
+                <p>Description</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
