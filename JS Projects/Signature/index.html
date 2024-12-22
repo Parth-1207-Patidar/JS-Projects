@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signature</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <form>
+          <div>
+            <label for="textColor">Text Color Picker</label>
+            <input
+              type="color"
+              name="textColor"
+              id="textColor"
+              value="#000000"
+            />
+          </div>
+          <div>
+            <label for="backgroundColor">Background Color Picker</label>
+            <input
+              type="color"
+              name="backgroundColor"
+              id="backgroundColor"
+              value="#ffffff"
+            />
+          </div>
+          <div>
+            <label for="lineWidth">Line Width</label>
+            <select name="lineWidth" id="lineWidth">
+              <option value="1px">1px</option>
+              <option value="2px">2px</option>
+              <option value="3px">3px</option>
+              <option value="4px">4px</option>
+              <option value="5px">5px</option>
+              <option value="6px">6px</option>
+              <option value="7px">7px</option>
+              <option value="8px">8px</option>
+              <option value="9px">9px</option>
+              <option value="10px">10px</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="input">
+        <canvas id="signaturePad" width="600px" height="400px"></canvas>
+      </div>
+      <div class="buttons">
+        <button class="btn" id="clear">Clear</button>
+        <button class="btn" id="save">Save & Download</button>
+        <button class="btn" id="retrieve">Retrieve Saved Signature</button>
+      </div>
+    </div>
+  </body>
+    <script src="script.js"></script>
+</html>

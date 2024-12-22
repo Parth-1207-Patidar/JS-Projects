@@ -4,6 +4,19 @@ const all = document.getElementById('all');
 const categoryBtn = document.querySelectorAll('.categoryBtn');
 const cards = document.querySelectorAll('.card');
 
+
+const debounce = (func, delay) => {
+    let debounceTimer
+    return function (...args) {
+        console.log('debounce triggered');
+        clearTimeout(debounceTimer)
+        debounceTimer = setTimeout(() =>{
+            console.log('debounce executed');
+            func.apply(this, args);
+        }, delay)
+    }
+}
+
 categoryBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
         if (btn.getAttribute('id') === 'all'){
@@ -12,31 +25,22 @@ categoryBtn.forEach((btn) => {
             })
             return;
         }
-        let category = btn.getAttribute('id');
 
         cards.forEach((card) => {
-            if (card.getAttribute('data-category') === category){
-                card.style.display = 'block';
-            }
-            else{
-                card.style.display = 'none';
-            }
+            card.style.display = card.getAttribute('data-category') === btn.getAttribute('id') ? 'block' : 'none';
         })
     })
 })
 
-search.addEventListener( 'input', () => {
+const debouncedSearch = debounce( () => {
     let searchValue = search.value.trim().toLowerCase();
 
     cards.forEach((card) => {
-        if (card.getAttribute('data-category').includes(searchValue)){
-            card.style.display = 'block';
-        }
-        else{
-            card.style.display = 'none';
-        }
+        card.style.display = card.getAttribute('data-category').includes(searchValue) ? 'block' : 'none';
     })
-})
+}, 500)
+
+search.addEventListener( 'input', debouncedSearch);
 
 searchBtn.addEventListener('click', () => {
     let searchValue = search.value.trim().toLowerCase();
@@ -44,11 +48,6 @@ searchBtn.addEventListener('click', () => {
         return;
     }
     cards.forEach((card) => {
-        if (card.getAttribute('data-category').includes(searchValue)){
-            card.style.display = 'block';
-        }
-        else{
-            card.style.display = 'none';
-        }
+        card.style.display = card.getAttribute('data-category').includes(searchValue) ? 'block' : 'none';
     })
 })
