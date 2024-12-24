@@ -9,26 +9,22 @@ let ctx = signaturePad.getContext('2d');
 let isDrawing;
 
 backgroundColor.addEventListener('change', () => {
-    console.log("backgroundColor");
     let color = backgroundColor.value;
     signaturePad.style.backgroundColor = color;
 });
 
 textColor.addEventListener('change', () => {
-    console.log("textColor");
     ctx.strokeStyle = textColor.value;
     ctx.fillStyle = textColor.value;
 });
 
 lineWidth.addEventListener('change', () => {
-    console.log("lineWidth");
     ctx.lineWidth = parseInt(lineWidth.value);
 });
 
 //signature pad
 
 signaturePad.addEventListener('mousedown', () => {
-    console.log("canvas");
     isDrawing = true;
     lastX = event.offsetX;
     lastY = event.offsetY;
@@ -36,7 +32,6 @@ signaturePad.addEventListener('mousedown', () => {
 
 signaturePad.addEventListener('mousemove', () => {
     if (isDrawing){
-        console.log("mousemove");
         ctx.beginPath();
         ctx.moveTo(lastX, lastY);
         ctx.lineTo(event.offsetX, event.offsetY);
@@ -48,24 +43,20 @@ signaturePad.addEventListener('mousemove', () => {
 })
 
 signaturePad.addEventListener('mouseup', () => {
-    console.log("mouseup");
     isDrawing = false;
 });
 
 signaturePad.addEventListener('mouseout', () => {
-    console.log("mouseout");
     isDrawing = false;
 });
 
 //buttons
 
 clearButton.addEventListener('click', () => {
-    console.log("clear");
     ctx.clearRect(0, 0, signaturePad.width, signaturePad.height);
 });
 
 saveButton.addEventListener('click', () => {
-    console.log("save");
     localStorage.setItem('signature', signaturePad.toDataURL());
 
     let link = document.createElement('a');
@@ -78,7 +69,6 @@ saveButton.addEventListener('click', () => {
 });
 
 retrieveButton.addEventListener('click', () => {
-    console.log("retrieve");
     let signature = localStorage.getItem('signature');
 
     if (signature){
