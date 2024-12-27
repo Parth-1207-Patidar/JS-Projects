@@ -3,6 +3,10 @@ import UseEffect from './useEffect'
 import UseEffectChild from './useEffectChild'
 import UseEffectFetch from './useEffectFetch'
 import UseContext from './useContextMain'
+import UseReducer from './useReducer'
+import UseReducerMini from './useReducerMini'
+import UseReducerMain from './useReducerMain'
+import UseReducerFetch from './useReducerFetch'
 
 const App = () => {
   return (
@@ -11,7 +15,11 @@ const App = () => {
       {/* <UseEffect /> */}
       {/* <UseEffectChild /> */}
       {/* <UseEffectFetch/> */}
-      <UseContext />
+      {/* <UseContext /> */}
+      {/* <UseReducer /> */}
+      {/* <UseReducerMini /> */}
+      {/* <UseReducerMain /> */}
+      <UseReducerFetch />
     </>
   );
 }
